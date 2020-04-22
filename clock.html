@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+	<style type="text/css">
+		div
+		{
+			background-color: black;
+			color: lime;
+			font-size: 30px;
+			width: 250px;
+			text-align: center;
+			border: 20px solid red;
+			border-radius: 40px;
+			border-top-color: blue;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		function datetime()
+		{
+		var dt=new Date();
+		var dd=dt.getDate();
+		var mm=dt.getMonth()+1;
+		mm=add_leading_zero(mm);
+		// 	if(mm==9)
+		//	mm="September";
+		var yyyy=dt.getFullYear();
+		document.getElementById('datetxt').innerHTML = "Date: "+dd+":"+mm+":"+yyyy;
+
+		var hh=dt.getHours();
+		var mi=dt.getMinutes();
+		var ss=dt.getSeconds();
+		hh=add_leading_zero(hh);
+		mi=add_leading_zero(mi);
+		ss=add_leading_zero(ss);
+		document.getElementById('timetxt').innerHTML = "Time: "+hh+":"+mi+":"+ss;
+		setTimeout(datetime,1000);
+		}
+
+		function add_leading_zero(i)
+		{
+			if(i<10)
+				i = "0" + i;
+			return i;
+		}
+
+		function mytable()
+		{
+			var num = prompt("Enter a Number","5");
+			var tbl='';
+			for(var i=1;i<=10;i++)
+			{
+				tbl = tbl + num+" X "+i+" = "+num * i+"<BR>";
+			}
+			document.getElementById('table_div').innerHTML = tbl;
+		}
+
+	</script>
+
+</HEAD>
+
+<BODY onload="datetime()" bgcolor="lightgreen">
+	<div id="datetxt">time is</div>
+	<div id="timetxt">time is</div>
+	<div id="table_div">Table of given num</div>
+	<input type="button" name="tablebtn" value="Click to print table" onclick="mytable()">
+</BODY>
+</HTML>
